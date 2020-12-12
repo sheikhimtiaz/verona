@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 3.19.0)
-
-# Need this to enable update-dump target.
-cmake_policy(SET CMP0114 NEW)
+cmake_minimum_required(VERSION 3.17.0)
 
 # CMAKE_HOME_DIRECTORY should not be passed down to another project.
 set (VERONA_DONT_PASS CMAKE_HOME_DIRECTORY)
@@ -171,9 +168,6 @@ if (NOT DEFINED VERONA_LLVM_LOCATION)
     USES_TERMINAL_INSTALL true
     USES_TERMINAL_TEST true
     CMAKE_ARGS ${VERONA_EXTRA_CMAKE_ARGS})
-
-#  ExternalProject_Add_StepTargets(verona update-dump)
-#  add_custom_target(update-dump DEPENDS verona-update-dump)
 
   if (${SEPARATE_TEST_TARGET})
     ExternalProject_Add_StepTargets(verona test)
